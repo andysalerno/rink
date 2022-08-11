@@ -3,7 +3,7 @@ use crate::providers::{
     ContentProvider,
 };
 
-const REFRESH_TIME_SEC: usize = 5 * 60;
+const REFRESH_TIME_SEC: usize = 1 * 60;
 
 pub struct FrontPage {
     providers: Vec<Box<dyn ContentProvider + Send + Sync>>,
