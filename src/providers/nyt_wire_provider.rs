@@ -14,7 +14,7 @@ impl NytMostViewedProvider {
     pub fn new(api_key: &str) -> Self {
         Self {
             api_key: api_key.into(),
-            limit: 5,
+            limit: 3,
         }
     }
 
