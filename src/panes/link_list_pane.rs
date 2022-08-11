@@ -1,3 +1,5 @@
+use std::borrow::Cow;
+
 use super::Pane;
 
 #[derive(Debug)]
@@ -35,6 +37,6 @@ impl Link {
         let title = &self.title;
         let url = &self.url;
 
-        format!("<a href='{url}'>{title}</a><br/>\n")
+        format!("<a href='{url}' style='white-space: nowrap; overflow: hidden; text-overflow: ellipsis'>{title}</a>\n")
     }
 }

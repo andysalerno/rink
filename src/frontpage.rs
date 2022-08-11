@@ -29,17 +29,17 @@ impl FrontPage {
         rendered.push_str("<!DOCTYPE html>\n");
         rendered.push_str("<html>\n");
         rendered.push_str("<head>\n");
-        rendered.push_str(&format!(
-            "<meta http-equiv='refresh' content='{REFRESH_TIME_SEC}'>"
-        ));
+        // rendered.push_str(&format!(
+        //     "<meta http-equiv='refresh' content='{REFRESH_TIME_SEC}'>"
+        // ));
         rendered.push_str("<title>testing</title>\n");
         rendered.push_str("<style>\n");
         rendered.extend(style.drain(..));
         rendered.push_str("</style>\n");
 
         // add fullscreen script
-        let script_section = full_screen_script();
-        rendered.push_str(&script_section);
+        // let script_section = full_screen_script();
+        // rendered.push_str(&script_section);
 
         rendered.push_str("</head>\n");
 
@@ -127,9 +127,10 @@ async fn render_provider(provider: &dyn ContentProvider) -> String {
 
 fn pane_style() -> String {
     ".pane {
+        display: flex;
         flex-direction: column;
         flex: 400px;
-        flex-grow: initial;
+        max-width: 400px;
         border: 1px solid #e4e4e4;
         border-radius: 5px;
         box-shadow: 0 3px 11px rgba(0,0,0,.04);
@@ -160,5 +161,6 @@ fn full_screen_script() -> String {
         }
     });
     </script>
-    "#.into()
+    "#
+    .into()
 }
