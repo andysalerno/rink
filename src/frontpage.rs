@@ -149,7 +149,15 @@ fn full_screen_script() -> String {
     r#"
     <script>
     document.addEventListener("DOMContentLoaded", function(event) {
-        document.documentElement.requestFullscreen();
+        const doc = document.documentElement;
+
+        if (doc.webkitRequestFullscreen) {
+            doc.webkitRequestFullscreen();
+        } else if (doc.mozRequestFullScreen) {
+            doc.mozRequestFullScreen();
+        } else if (doc.requestFullscreen) {
+            doc.requestFullscreen();
+        }
     });
     </script>
     "#.into()
