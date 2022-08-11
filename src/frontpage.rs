@@ -36,6 +36,11 @@ impl FrontPage {
         rendered.push_str("<style>\n");
         rendered.extend(style.drain(..));
         rendered.push_str("</style>\n");
+
+        // add fullscreen script
+        let script_section = full_screen_script();
+        rendered.push_str(&script_section);
+
         rendered.push_str("</head>\n");
 
         rendered.push_str("<div class='pane-parent'>");
@@ -138,4 +143,14 @@ fn pane_style() -> String {
     }
     "
     .into()
+}
+
+fn full_screen_script() -> String {
+    r#"
+    <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.documentElement.requestFullscreen();
+    });
+    </script>
+    "#.into()
 }
