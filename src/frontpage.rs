@@ -43,7 +43,7 @@ impl FrontPage {
 
         rendered.push_str("</head>\n");
 
-        rendered.push_str("<div class='pane-parent'>");
+        rendered.push_str("<div class='pane-parent' id='parent'>");
 
         // First pane
         let pane = render_provider(self.providers[0].as_ref()).await;
@@ -110,7 +110,7 @@ impl FrontPage {
         rendered.push_str("</div>");
 
         // fullscreen button
-        rendered.push_str(r#"<button onclick="enterFullScreen()">Click me</button>"#);
+        rendered.push_str(r#"<button onclick="rotate()">Rotate</button>"#);
 
         rendered.push_str("</html>");
 
@@ -153,16 +153,10 @@ fn full_screen_script() -> String {
     r#"
     <script>
 
-    const enterFullScreen = function() {
-        const doc = document.documentElement;
+    const rotate = function() {
+        const doc = document.getElementById("parent");
 
-        if (doc.webkitRequestFullscreen) {
-            doc.webkitRequestFullscreen();
-        } else if (doc.mozRequestFullScreen) {
-            doc.mozRequestFullScreen();
-        } else if (doc.requestFullscreen) {
-            doc.requestFullscreen();
-        }
+        doc.style.writingMode = "vertical-rl";
     };
     </script>
     "#
