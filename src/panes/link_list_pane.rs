@@ -1,5 +1,3 @@
-use std::borrow::Cow;
-
 use super::Pane;
 
 #[derive(Debug)]

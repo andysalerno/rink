@@ -38,8 +38,8 @@ impl FrontPage {
         rendered.push_str("</style>\n");
 
         // add fullscreen script
-        // let script_section = full_screen_script();
-        // rendered.push_str(&script_section);
+        let script_section = full_screen_script();
+        rendered.push_str(&script_section);
 
         rendered.push_str("</head>\n");
 
@@ -109,6 +109,9 @@ impl FrontPage {
 
         rendered.push_str("</div>");
 
+        // fullscreen button
+        rendered.push_str(r#"<button onclick="enterFullScreen()">Click me</button>"#);
+
         rendered.push_str("</html>");
 
         rendered
@@ -149,7 +152,8 @@ fn pane_style() -> String {
 fn full_screen_script() -> String {
     r#"
     <script>
-    document.addEventListener("DOMContentLoaded", function(event) {
+
+    const enterFullScreen = function() {
         const doc = document.documentElement;
 
         if (doc.webkitRequestFullscreen) {
@@ -159,7 +163,7 @@ fn full_screen_script() -> String {
         } else if (doc.requestFullscreen) {
             doc.requestFullscreen();
         }
-    });
+    };
     </script>
     "#
     .into()
