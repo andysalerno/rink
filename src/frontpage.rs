@@ -150,18 +150,11 @@ fn pane_style() -> String {
 }
 
 fn full_screen_script() -> String {
-    r#"
-    <script>
+    let s = include_str!("js.js");
 
-    const rotate = function() {
-        const doc = document.getElementById("parent");
-
-        doc.style.writingMode = "vertical-rl";
-
-        const button = document.getElementById("button");
-        button.textContent = window.navigator.userAgent;
-    };
-    </script>
-    "#
-    .into()
+    format!(
+        "<script>
+        {s}
+        </script>"
+    )
 }
