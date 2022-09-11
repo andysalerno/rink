@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
     for (var i = 0; i < panes.length; i++) {
         var pane = panes[i];
         pane.onclick = function (event) {
+            event.preventDefault();
+            event.stopPropagation();
             openAsModal(event.target);
         };
     }
