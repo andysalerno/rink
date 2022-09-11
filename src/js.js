@@ -1,5 +1,8 @@
+var originalDisplay = "none";
+
 var openAsModal = function openAsModal(target) {
     var parent = document.getElementById("parent");
+    originalDisplay = parent.style.display;
     parent.style.display = "none";
     var modal = document.getElementById("modal");
     modal.innerHTML = target.innerHTML;
@@ -12,7 +15,7 @@ var closeModal = function () {
     modal.innerHTML = "";
 
     var parent = document.getElementById("parent");
-    parent.style.display = "flex";
+    parent.style.display = originalDisplay;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
