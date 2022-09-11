@@ -109,9 +109,6 @@ impl FrontPage {
 
         rendered.push_str("</div>");
 
-        // fullscreen button
-        rendered.push_str(r#"<button onclick="rotate()" id="button">Rotate</button>"#);
-
         rendered.push_str(&modal());
 
         rendered.push_str("</html>");
