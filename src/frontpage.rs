@@ -110,7 +110,7 @@ impl FrontPage {
         rendered.push_str("</div>");
 
         // fullscreen button
-        rendered.push_str(r#"<button onclick="rotate()">Rotate</button>"#);
+        rendered.push_str(r#"<button onclick="rotate()" id="button">Rotate</button>"#);
 
         rendered.push_str("</html>");
 
@@ -157,6 +157,9 @@ fn full_screen_script() -> String {
         const doc = document.getElementById("parent");
 
         doc.style.writingMode = "vertical-rl";
+
+        const button = document.getElementById("button");
+        button.textContent = window.navigator.userAgent;
     };
     </script>
     "#
