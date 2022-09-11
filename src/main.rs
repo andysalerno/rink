@@ -3,7 +3,6 @@ use std::convert::Infallible;
 use frontpage::FrontPage;
 use warp::Filter;
 
-mod content_provider;
 mod frontpage;
 mod panes;
 mod providers;

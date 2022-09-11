@@ -112,6 +112,8 @@ impl FrontPage {
         // fullscreen button
         rendered.push_str(r#"<button onclick="rotate()" id="button">Rotate</button>"#);
 
+        rendered.push_str(&modal());
+
         rendered.push_str("</html>");
 
         rendered
@@ -129,24 +131,11 @@ async fn render_provider(provider: &dyn ContentProvider) -> String {
 }
 
 fn pane_style() -> String {
-    ".pane {
-        display: flex;
-        flex-direction: column;
-        flex: 400px;
-        max-width: 400px;
-        border: 1px solid #e4e4e4;
-        border-radius: 5px;
-        box-shadow: 0 3px 11px rgba(0,0,0,.04);
-        margin: 5px;
-        padding: 1rem;
-    }
-    .pane-parent {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    "
-    .into()
+    include_str!("frontpage.css").into()
+}
+
+fn modal() -> String {
+    include_str!("modal.html").into()
 }
 
 fn full_screen_script() -> String {
