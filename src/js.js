@@ -1,18 +1,23 @@
 var originalDisplay = "none";
 
 var openAsModal = function openAsModal(target) {
+    // hide parent
     var parent = document.getElementById("parent");
     originalDisplay = parent.style.display;
     parent.style.display = "none";
+
+    // set modal content modal
+    var modalContent = document.getElementById("modalContent");
+    modalContent.innerHTML = target.innerHTML;
+
+    // show modal
     var modal = document.getElementById("modal");
-    modal.innerHTML = target.innerHTML;
     modal.style.display = "block";
 };
 
 var closeModal = function () {
     var modal = document.getElementById("modal");
     modal.style.display = "none";
-    modal.innerHTML = "";
 
     var parent = document.getElementById("parent");
     parent.style.display = originalDisplay;
