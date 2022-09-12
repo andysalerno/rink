@@ -127,7 +127,7 @@ async fn render_provider(provider: &dyn ContentProvider) -> String {
     if let Some(download_path) = pane.download_path() {
         let download_path = download_path.replace('/', "%2F");
         html.push_str(&format!(
-            "<button onclick=\"location.href='/download/{download_path}.mobi'\" type='button'>download</button>"
+            "<button onclick=\"location.href='/download/{download_path}.txt'\" type='button'>download</button>"
         ));
         // html.push_str("<button onclick='location.href='http://www.example.com'" type="button">
         // www.example.com</button>");

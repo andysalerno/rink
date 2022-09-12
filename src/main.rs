@@ -36,7 +36,7 @@ async fn download_render() -> Result<impl warp::Reply, Infallible> {
 
 async fn download_page(url: String) -> Result<impl warp::Reply, Infallible> {
     let url = url.replace("%2F", "/");
-    let url = url.replace(".mobi", "");
+    let url = url.replace(".txt", "");
     println!("downloading: {url}");
     let content = reqwest::get(url).await.unwrap();
     let content = content.text().await.unwrap();
