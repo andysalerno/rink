@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         pane.onclick = function (event) {
             event.preventDefault();
             event.stopPropagation();
-            openAsModal(event.target);
+            openAsModal(event.currentTarget);
         };
     }
 });
