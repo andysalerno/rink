@@ -11,7 +11,11 @@ mod providers;
 async fn main() {
     let page = warp::path!().and_then(front_page_render);
 
-    warp::serve(page).run(([0, 0, 0, 0], 3030)).await;
+    let download = warp::path!("download.txt").and_then(download_render);
+
+    warp::serve(page.or(download))
+        .run(([0, 0, 0, 0], 3030))
+        .await;
 }
 
 async fn front_page_render() -> Result<impl warp::Reply, Infallible> {
@@ -19,4 +23,8 @@ async fn front_page_render() -> Result<impl warp::Reply, Infallible> {
     let s = fp.render().await;
 
     Ok(warp::reply::html(s))
+}
+
+async fn download_render() -> Result<impl warp::Reply, Infallible> {
+    Ok(warp::reply::html("testing".to_owned()))
 }

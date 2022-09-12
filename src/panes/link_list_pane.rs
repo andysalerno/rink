@@ -19,6 +19,8 @@ impl Pane for LinkListPane {
             r.extend(link.render_html().drain(..));
         }
 
+        r.push_str("<a href='/download.txt' download>download</a>");
+
         r
     }
 }

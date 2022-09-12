@@ -49,6 +49,10 @@ impl ContentProvider for NytMostViewedProvider {
 
         Box::new(pane)
     }
+
+    async fn download_content(&self) -> Option<String> {
+        None
+    }
 }
 
 #[derive(Deserialize, Debug)]
