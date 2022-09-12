@@ -8,7 +8,8 @@ var openAsModal = function openAsModal(target) {
 
     // set modal content modal
     var modalContent = document.getElementById("modalContent");
-    modalContent.innerHTML = target.innerHTML;
+    // modalContent.innerHTML = target.innerHTML;
+    modalContent.innerHTML = "Width: " + screen.width + ", height: " + screen.height;
 
     // show modal
     var modal = document.getElementById("modal");
