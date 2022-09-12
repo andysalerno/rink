@@ -26,5 +26,7 @@ async fn front_page_render() -> Result<impl warp::Reply, Infallible> {
 }
 
 async fn download_render() -> Result<impl warp::Reply, Infallible> {
-    Ok(warp::reply::html("testing".to_owned()))
+    Ok(warp::http::response::Response::builder()
+        .header("Content-Type", "application/x-mobipocket-ebook")
+        .body("blahblahblah"))
 }
