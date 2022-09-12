@@ -50,10 +50,6 @@ impl ContentProvider for NytWireProvider {
 
         Box::new(pane)
     }
-
-    async fn download_content(&self) -> Option<String> {
-        Some("downloaded article".to_owned())
-    }
 }
 
 #[derive(Deserialize, Debug)]
