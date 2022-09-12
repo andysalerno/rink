@@ -1,19 +1,13 @@
 .pane {
-    display: flex;
-    flex-direction: column;
-    flex: 400px;
-    max-width: 400px;
-    border: 1px solid #e4e4e4;
+    display: block;
+    border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 0 3px 11px rgba(0, 0, 0, .04);
     margin: 5px;
     padding: 1rem;
 }
 
 .pane-parent {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: block;
 }
 
 .modal {
