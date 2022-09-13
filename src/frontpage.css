@@ -1,12 +1,21 @@
 .pane {
-    display: block;
+    /* display: block;
     border: 1px solid black;
     margin: 5px;
-    padding: 1rem;
+    padding: 1rem; */
+    display: flex;
+    flex-direction: column;
+    flex: 400px;
+    max-width: 400px;
+    border: 1px solid black;
+    margin: 5px;
 }
 
 .pane-parent {
-    display: block;
+    /* display: block; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .modal {
